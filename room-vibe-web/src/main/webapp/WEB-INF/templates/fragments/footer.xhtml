@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces">
+    <ui:composition>
+
+<style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+</style>
+
+<footer style="background-color: #04034f; color: white; padding: 2rem 0 0 0; width: 100%; margin: 0;">
+    <div style="max-width: 1200px; margin: auto; padding: 0 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10rem;">
+
+        <div style="flex: 1; min-width: 250px;">
+            <div style="margin-bottom: 1rem;">
+                <p:graphicImage rl="#{request.contextPath}/resources/images/room-vibe-logo.jpg" alt="Logo RoomVibe" style="height: 60px;" />
+            </div>
+            <p><i class="pi pi-envelope" style="margin-right: 0.5rem;"></i> info@roomvibe.com</p>
+            <hr style="border-color: #ffffff33; margin: 1rem 0;" />
+            <p><i class="pi pi-map-marker" style="margin-right: 0.5rem;"></i> <b>Dirección:</b><br />Av. Principal, Loja, Ecuador</p>
+            <hr style="border-color: #ffffff33; margin: 1rem 0;" />
+            <p><i class="pi pi-phone" style="margin-right: 0.5rem;"></i> +593 2 222 3333</p>
+        </div>
+
+        <div style="flex: 1; min-width: 250px; text-align: center;">
+            <h3 style="margin-bottom: 1rem;">Encuéntranos en:</h3>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://instagram.com" target="_blank" style="border: 1px solid white; border-radius: 50%; padding: 0.5rem; color: white;">
+                    <i class="pi pi-instagram" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" style="border: 1px solid white; border-radius: 50%; padding: 0.5rem; color: white;">
+                    <i class="pi pi-facebook" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" style="border: 1px solid white; border-radius: 50%; padding: 0.5rem; color: white;">
+                    <i class="pi pi-youtube" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://tripadvisor.com" target="_blank" style="border: 1px solid white; border-radius: 50%; padding: 0.5rem; color: white;">
+                    <i class="pi pi-globe" style="font-size: 1.5rem;"></i>
+                </a>
+                <a href="https://wa.me/593983619992" target="_blank" style="border: 1px solid white; border-radius: 30px; padding: 0.5rem 1rem; color: white;">
+                    <i class="pi pi-whatsapp" style="font-size: 1.2rem; margin-right: 0.5rem;"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <div style="flex: 1; min-width: 250px;">
+            <h3 style="margin-bottom: 1rem;">Enlaces útiles</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li><a href="#{request.contextPath}/reserva.xhtml?faces-redirect=true">Reserva ya!!</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Preguntas frecuentes</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Términos y condiciones</a></li>
+                <li><a href="#" style="color: white; text-decoration: none;">Políticas de privacidad</a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+
+<div style="background-color: #23217a; padding: 1rem 0; width: 100%; margin: 0;">
+    <div style="max-width: 1200px; margin: auto; text-align: center;">
+        <p:graphicImage url="#{request.contextPath}/resources/images/room-vibe-logo.jpg" alt="logo" height="25" />
+        <p style="font-size: small; color: #ffffff; margin: 0;">© 2025 Mi Empresa - Licenced by GPLV2</p>
+    </div>
+</div>
+
+    </ui:composition>
+
+</html>

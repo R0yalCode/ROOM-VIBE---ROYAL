@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="jakarta.faces.html"
+          xmlns:ui="jakarta.faces.facelets"
+          xmlns:p="http://primefaces.org/ui"
+          xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="WEB-INF/templates/base.xhtml">
+        <ui:define name="title-view">
+            Reserva de habitación
+        </ui:define>
+
+        <ui:define name="content">
+            <h:outputStylesheet library="css" name="reserva.css" />
+
+            <div class="card" style="max-width:600px; margin:10px auto; padding:20px;">
+                <h2 style="text-align:center; color:#007ad9; margin-bottom:25px;">
+                    <i class="pi pi-calendar-plus" style="margin-right:10px;"></i>Reserva de Hotel
+                </h2>
+
+                <h:form id="reservaForm">
+                    <p:growl id="growl" life="4000" showDetail="true" sticky="false" />
+
+                    <p:panelGrid columns="1"
+                                 layout="grid"
+                                 styleClass="ui-panelgrid ui-panelgrid-noborder ui-fluid"
+                                 columnClasses="ui-grid-col-12">
+
+                        <!-- Nombre -->
+                        <p:outputLabel for="nombre" value="Nombre completo:" />
+                        <p:inputText id="nombre"
+                                     value="#{reservaBean.nombre}"
+                                     required="true"
+                                     requiredMessage="Este campo es obligatorio"
+                                     styleClass="p-inputtext-lg">
+                            <p:ajax event="blur" process="@this" update="nombreMsg" />
+                        </p:inputText>
+                        <p:message id="nombreMsg" for="nombre" />
+
+                        <!-- Email -->
+                        <p:outputLabel for="email" value="Correo electrónico:" />
+                        <p:inputText id="email"
+                                     value="#{reservaBean.email}"
+                                     required="true"
+                                     requiredMessage="Este campo es obligatorio"
+                                     styleClass="p-inputtext-lg">
+                            <p:ajax event="blur" process="@this" update="emailMsg" />
+                        </p:inputText>
+                        <p:message id="emailMsg" for="email" />
+
+                        <!-- Fecha entrada -->
+                        <p:outputLabel for="fechaEntrada" value="Fecha de entrada:" />
+                        <p:datePicker id="fechaEntrada"
+                                      value="#{reservaBean.fechaEntrada}"
+                                      required="true"
+                                      showIcon="true"
+                                      touchUI="true">
+                            <p:ajax event="dateSelect" process="@this" update="fechaEntradaMsg fechaSalida" />
+                        </p:datePicker>
+                        <p:message id="fechaEntradaMsg" for="fechaEntrada" />
+
+                        <!-- Fecha salida -->
+                        <p:outputLabel for="fechaSalida" value="Fecha de salida:" />
+                        <p:datePicker id="fechaSalida"
+                                      value="#{reservaBean.fechaSalida}"
+                                      required="true"
+                                      showIcon="true"
+                                      touchUI="true">
+                            <p:ajax event="dateSelect" process="@this" update="fechaSalidaMsg" />
+                        </p:datePicker>
+                        <p:message id="fechaSalidaMsg" for="fechaSalida" />
+
+                        <!-- Tipo habitación -->
+                        <p:outputLabel for="habitacion" value="Tipo de habitación:" />
+                        <p:selectOneMenu id="habitacion"
+                                         value="#{reservaBean.habitacion}"
+                                         required="true">
+                            <f:selectItem itemLabel="Seleccione una opción" itemValue="" />
+                            <f:selectItem itemLabel="Sencilla" itemValue="sencilla" />
+                            <f:selectItem itemLabel="Doble" itemValue="doble" />
+                            <f:selectItem itemLabel="Suite" itemValue="suite" />
+                            <p:ajax event="valueChange" listener="#{reservaBean.actualizarPrecio}" update="habitacionMsg" />
+                        </p:selectOneMenu>
+                        <p:message id="habitacionMsg" for="habitacion" />
+
+                        <!-- Número de personas -->
+                        <p:outputLabel for="personas" value="Número de personas:" />
+                        <p:inputNumber id="personas"
+                                       value="#{reservaBean.personas}"
+                                       minValue="1"
+                                       maxValue="10"
+                                       required="true" />
+                        <p:message for="personas" />
+
+                        <!-- Botón reservar -->
+                        <p:commandButton value="Reservar ahora"
+                                         action="#{reservaBean.reservar}"
+                                         icon="pi pi-check"
+                                         styleClass="ui-button-success"
+                                         style="margin-top:15px; width:100%;"
+                                         update="reservaForm growl" />
+                    </p:panelGrid>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+    </html>

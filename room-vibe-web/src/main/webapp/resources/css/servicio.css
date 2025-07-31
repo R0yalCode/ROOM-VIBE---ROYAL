@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f9ff;
+    color: #002244;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: #e6f2ff;
+    border: 1px solid #b3d7ff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.titulo-principal {
+    text-align: center;
+    font-size: 2.25rem;
+    color: #004080;
+    margin-bottom: 50px;
+}
+
+.servicios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.servicio-card {
+    background: #fff;
+    border: 1px solid #cce0ff;
+    border-radius: 15px;
+    width: 340px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+}
+
+.servicio-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.contenido {
+    padding: 20px;
+}
+
+.titulo-servicio {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #0055aa;
+    margin-bottom: 10px;
+}
+
+.descripcion-corta {
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-weight: bold;
+    color: #0088cc;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .servicios-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .servicio-card {
+        width: 90%;
+    }
+}

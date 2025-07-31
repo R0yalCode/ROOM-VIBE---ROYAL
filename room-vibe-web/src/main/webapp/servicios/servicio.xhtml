@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="primefaces"
+                template="/WEB-INF/templates/base.xhtml">
+
+    <ui:define name="title-view">Servicios</ui:define>
+
+    <ui:define name="head">
+        <h:outputStylesheet library="css" name="servicio.css"/>
+    </ui:define>
+
+    <ui:define name="content">
+        <f:view>
+            <div class="container">
+                <h1 class="titulo-principal">Nuestros Servicios</h1>
+                <p:carousel value="#{carouselServiciosView.servicios}" var="servicio"
+                            numVisible="3" numScroll="1" circular="true" autoplayInterval="3000">
+                    <div class="servicio-card">
+                        <p:graphicImage value="#{resource[servicio.imagen]}" alt="#{servicio.nombre}"/>
+                        <div class="contenido">
+                            <div class="titulo-servicio">#{servicio.nombre}</div>
+                            <div class="descripcion-corta">#{servicio.descripcion}</div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+        </f:view>
+    </ui:define>
+</ui:composition>

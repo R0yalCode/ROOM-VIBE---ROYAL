@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>J-Brews 1.0 - Iniciar Sesión</title>
+        <h:outputStylesheet library="css" name="login.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form id="loginForm">
+            <div class="login-card">
+                <div class="login-header">
+                    <p:graphicImage url="#{request.contextPath}/resources/images/roomvibe_logo.png"
+                                    style="width:100px; margin-bottom:1em;"/>
+                    <h2 style="color:#1E2A38;">Inicio de Sesión</h2>
+                    <h:outputText value="Accede con tus credenciales para administrar Room-Vibe"
+                                  style="color:#1E2A38;"/>
+                    <h:outputText value="“Tu descanso, nuestra prioridad.”" styleClass="frase-estilo"/>
+                </div>
+
+                <div class="login-form-group">
+                    <div class="input-group">
+                        <p:outputLabel for="username" value="Usuario"/>
+                        <p:inputText id="username" value="#{authenticationBean.username}" required="true"
+                                     placeholder="Ingrese su usuario" styleClass="p-inputtext-lg">
+                            <p:ajax event="blur" process="@this" update="usernameMsg"/>
+                        </p:inputText>
+                        <p:message id="usernameMsg" for="username" display="icon" showDetail="true"/>
+                    </div>
+
+                    <div class="input-group">
+                        <p:outputLabel for="password" value="Contraseña"/>
+                        <p:password id="password" value="#{authenticationBean.password}" required="true"
+                                    placeholder="Ingrese su contraseña" toggleMask="true" redisplay="true"
+                                    feedback="true" promptLabel="Escribe una contraseña"
+                                    weakLabel="Débil" strongLabel="Fuerte"
+                                    styleClass="p-inputtext-lg">
+                            <f:validateLength minimum="8"/>
+                            <p:clientValidator/>
+                            <p:ajax event="blur" process="@this" update="passwordMsg"/>
+                        </p:password>
+                        <p:message id="passwordMsg" for="password" display="icon" showDetail="true"/>
+                    </div>
+                </div>
+
+                <div class="login-buttons">
+                    <p:commandButton value="Ingresar"
+                                     action="#{authenticationBean.login}"
+                                     icon="pi pi-sign-in"
+                                     ajax="false"
+                                     styleClass="p-button-rounded p-button-success"/>
+
+                    <p:commandButton value="Cancelar"
+                                     action="index.xhtml?faces-redirect=true"
+                                     immediate="true"
+                                     icon="pi pi-times"
+                                     styleClass="p-button-rounded p-button-secondary"/>
+
+                    <h:outputLink value="recuperar.xhtml"
+                                  style="margin-top:1em; color:#0078d7;">
+                        ¿Olvidaste tu contraseña?
+                    </h:outputLink>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces">
+
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <link rel="icon" type="image/jpeg" href="#{request.contextPath}/resources/images/room-vibe-logo.jpg" />
+        <title>
+            <ui:insert name="title-view">Room-Vibe 1.0</ui:insert>
+        </title>
+
+        <h:outputStylesheet library="css" name="topbar.css" />
+        <h:outputStylesheet library="css" name="base.css" />
+        <ui:insert name="head"/>
+    </h:head>
+
+    <h:body>
+        <div class="app-container">
+            <header id="header">
+                <div class="header-container">
+                    <div class="header-content">
+                        <div class="app-title">
+                            <div class="flex align-items-center gap-3">
+                                <h:graphicImage url="#{request.contextPath}/resources/images/room-vibe-logo.jpg"
+                                                width="36" height="36" alt="Room-Vibe"
+                                                style="border-radius: 4px;" />
+                                <h:outputText value="Room-Vibe"
+                                              style="color: #fff; font-weight: bold; font-size: 1.125rem;" />
+                            </div>
+                        </div>
+                        <ui:insert name="menu">
+                            <ui:include src="fragments/topbar.xhtml" />
+                        </ui:insert>
+                    </div>
+                </div>
+            </header>
+
+            <main id="content">
+                <div class="content-container">
+                    <div class="centered-card">
+                        <ui:insert name="content">
+                            <ui:debug hotkey="d"/>
+                        </ui:insert>
+                    </div>
+                </div>
+                <ui:insert name="outside-content" />
+            </main>
+
+            <footer id="footer">
+                <ui:insert name="footer">
+                    <ui:include src="fragments/footer.xhtml"/>
+                </ui:insert>
+            </footer>
+
+            <p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+                <f:facet name="start">
+                    <i class="pi pi-spin pi-spinner layout-ajax-loader-icon" aria-hidden="true"/>
+                </f:facet>
+                <f:facet name="complete">
+                    <h:outputText value=""/>
+                </f:facet>
+            </p:ajaxStatus>
+        </div>
+    </h:body>
+</f:view>
+</html>

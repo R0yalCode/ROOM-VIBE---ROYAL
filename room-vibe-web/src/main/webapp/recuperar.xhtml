@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE html>
+                <html xmlns="http://www.w3.org/1999/xhtml"
+                      xmlns:h="jakarta.faces.html"
+                      xmlns:f="jakarta.faces.core"
+                      xmlns:p="http://primefaces.org/ui">
+
+                <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+                    <h:head>
+                        <title>Room-Vibe - Recuperar Contraseña</title>
+                        <h:outputStylesheet library="css" name="recuperar.css" />
+                    </h:head>
+
+                    <h:body>
+                        <h:form id="recuperarForm">
+                            <p:growl id="growl" life="3000" showDetail="true" sticky="false" />
+
+                            <h:outputScript>
+                                function redireccionar() {
+                                    const errores = document.querySelectorAll('.ui-message-error');
+                                    if (errores.length === 0) {
+                                        setTimeout(function() {
+                                            window.location.href = 'login.xhtml';
+                                        }, 2500);
+                                    }
+                                }
+                            </h:outputScript>
+
+                            <div class="login-card">
+                                <div class="login-header">
+                                    <p:graphicImage url="images/roomvibe_logo.png" style="width:100px; margin-bottom:1em;" />
+                                    <h2 style="color:#1E2A38;">¿Olvidaste tu contraseña?</h2>
+                                    <h:outputText value="Ingresa tu correo electrónico y te enviaremos instrucciones para restablecerla." style="color:#1E2A38;" />
+                                    <h:outputText value="“Tu descanso, nuestra prioridad.”" styleClass="frase-estilo" />
+                                </div>
+
+                                <div class="login-form-group">
+                                    <div class="input-group">
+                                        <p:outputLabel for="email" value="Correo Electrónico" />
+                                        <p:inputText id="email"
+                                                     value="#{recuperarBean.email}"
+                                                     required="true"
+                                                     requiredMessage="Este campo es obligatorio"
+                                                     placeholder="ejemplo@correo.com"
+                                                     styleClass="p-inputtext-lg">
+                                            <p:ajax event="blur" process="@this" update="emailMsg" />
+                                            <f:validator validatorId="ValidatorBean" />
+                                        </p:inputText>
+                                        <p:message id="emailMsg" for="email" display="icon" showDetail="true" />
+                                    </div>
+                                </div>
+
+                                <div class="login-buttons">
+                                    <p:commandButton value="Enviar Instrucciones"
+                                                     icon="pi pi-envelope"
+                                                     action="#{recuperarBean.enviarInstrucciones}"
+                                                     oncomplete="redireccionar()"
+                                                     styleClass="p-button-rounded p-button-success"
+                                                     update="growl emailMsg" />
+
+                                    <p:button value="Volver al Login"
+                                              icon="pi pi-arrow-left"
+                                              outcome="login"
+                                              styleClass="p-button-rounded p-button-secondary" />
+                                </div>
+                            </div>
+                        </h:form>
+                    </h:body>
+                </f:view>
+                </html>

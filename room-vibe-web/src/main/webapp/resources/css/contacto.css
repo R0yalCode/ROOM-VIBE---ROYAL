@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+}
+.contact-card {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 2.5em 2em;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s;
+}
+.contact-card:hover {
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+.contact-heading {
+    text-align: center;
+    color: #0078d7;
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    letter-spacing: 1px;
+}
+.contact-description {
+    text-align: center;
+    font-size: 1.15em;
+    color: #444;
+    margin-bottom: 1.5em;
+}
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    margin-top: 2em;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background: #f6f8fa;
+    border-radius: 12px;
+    padding: 0.8em 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+.contact-item:hover {
+    background: #eaf4fb;
+}
+.contact-icon {
+    font-size: 2.2em;
+    transition: transform 0.2s;
+}
+.contact-item:hover .contact-icon {
+    transform: scale(1.15) rotate(-8deg);
+}
+.contact-link {
+    font-size: 1.1em;
+    color: #222;
+}
+.contact-link a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.contact-link a:hover {
+    text-decoration: underline;
+    color: #005fa3 !important;
+}
+.return-button {
+    text-align: center;
+    margin-top: 2.5em;
+}
+/* Sugerencia input */
+.p-inputtext {
+    border-radius: 8px !important;
+    border: 1px solid #cfd8dc !important;
+    padding: 0.7em !important;
+    font-size: 1em !important;
+    transition: border-color 0.2s;
+}
+.p-inputtext:focus {
+    border-color: #0078d7 !important;
+    box-shadow: 0 0 0 2px #e0eafc;
+}
+.p-button {
+    border-radius: 8px !important;
+    font-size: 1.05em !important;
+    padding: 0.7em 1.5em !important;
+}
+.p-button-secondary {
+    background: linear-gradient(90deg, #0078d7 0%, #00c6fb 100%) !important;
+    color: #fff !important;
+    border: none !important;
+}

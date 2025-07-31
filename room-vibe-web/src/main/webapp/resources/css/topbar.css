@@ -1,0 +1,112 @@
+.topbar-custom {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.topbar-custom .ui-toolbar-group-right,
+.topbar-custom .ui-toolbar-group-left {
+    align-items: center;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.topbar-custom .ui-button {
+    background: transparent !important;
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.topbar-custom .ui-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 0.5rem;
+}
+
+
+/* Fondo del hero */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-background {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Barra superior */
+#panel-header.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 1rem 2rem;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo del logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Botones del menú */
+.p-button {
+    margin-left: 0.5rem;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.p-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Botón especial RESERVAR */
+.reservar-btn {
+    background-color: #34c759;
+    border-color: #34c759;
+    color: white;
+}
+
+.reservar-btn:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Botón especial LOGIN */
+.login-btn {
+    background-color: transparent;
+    border-color: #00bfff;
+    color: #00bfff;
+}
+
+.login-btn:hover {
+    background-color: #00bfff;
+    color: white;
+}

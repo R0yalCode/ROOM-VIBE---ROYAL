@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+            <!DOCTYPE html>
+            <html xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:h="jakarta.faces.html"
+                  xmlns:ui="jakarta.faces.facelets"
+                  xmlns:p="primefaces"
+                  xmlns:f="jakarta.faces.core">
+
+            <ui:composition template="WEB-INF/templates/base.xhtml">
+                <ui:define name="title-view">
+                    Contacto - Room-Vibe
+                </ui:define>
+                <ui:define name="content">
+                    <h:outputStylesheet library="css" name="contacto.css" />
+
+                    <h:form>
+                        <p:growl id="mensajes" showDetail="true" life="4000" />
+
+                        <div class="card contact-card">
+                            <h2 class="contact-heading">¡Contáctanos!</h2>
+                            <p class="contact-description">
+                                ¿Tienes dudas, sugerencias o necesitas ayuda? <br/>
+                                Estamos para servirte en cualquiera de nuestros canales:
+                            </p>
+
+                            <!-- Campo de sugerencia con AJAX -->
+                            <div style="margin-bottom:1.5em;">
+                                <p:outputLabel value="¿Tienes alguna sugerencia?" for="sugerencia" style="font-weight:500;"/>
+                                <p:inputText id="sugerencia" value="#{contactoBean.sugerencia}" label="Sugerencia" style="width:100%;">
+                                    <p:ajax event="blur" update="mensajes" listener="#{contactoBean.validarSugerencia}" />
+                                </p:inputText>
+                                <p:commandButton value="Enviar sugerencia"
+                                                 action="#{contactoBean.enviar}"
+                                                 ajax="true"
+                                                 update="mensajes"
+                                                 icon="pi pi-check"
+                                                 style="margin-top:0.7em;"/>
+                            </div>
+
+                            <div class="contact-list">
+                                <div class="contact-item">
+                                    <i class="pi pi-envelope contact-icon" style="color:#d93025;"></i>
+                                    <span class="contact-link">
+                                        <b>Email:</b>
+                                        <a href="mailto:roomvibe.hotel@gmail.com" style="color:#0078d7;">roomvibe.hotel@gmail.com</a>
+                                    </span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="pi pi-phone contact-icon" style="color:#0078d7;"></i>
+                                    <span class="contact-link">
+                                        <b>Teléfono fijo:</b>
+                                        <a href="tel:+59322223333" style="color:#0078d7;">+593 2 222 3333</a>
+                                    </span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="pi pi-whatsapp contact-icon" style="color:#25d366;"></i>
+                                    <span class="contact-link">
+                                        <b>WhatsApp:</b>
+                                        <a href="https://wa.me/593983619992?text=Quiero%20conocer%20más%20información%20acerca%20del%20hotel"
+                                           target="_blank" style="color:#25d366;">+593 983 619 992</a>
+                                    </span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="pi pi-instagram contact-icon" style="color:#e1306c;"></i>
+                                    <span class="contact-link">
+                                        <b>Instagram:</b>
+                                        <a href="https://instagram.com/roomvibe.hotel" target="_blank" style="color:#e1306c;">@roomvibe.hotel</a>
+                                    </span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="pi pi-facebook contact-icon" style="color:#1877f3;"></i>
+                                    <span class="contact-link">
+                                        <b>Facebook:</b>
+                                        <a href="https://facebook.com/roomvibe.hotel" target="_blank" style="color:#1877f3;">RoomVibe Hotel</a>
+                                    </span>
+                                </div>
+                                <div class="card">
+                                    <p:gmap center="41.381542, 2.122893" zoom="15" type="HYBRID" style="width:50%;height:400px"/>
+                                </div>
+                            </div>
+
+                            <div class="return-button">
+                                <p:button value="Volver al inicio" icon="pi pi-home" outcome="index" styleClass="p-button-secondary"/>
+                            </div>
+
+                        </div>
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+            </html>

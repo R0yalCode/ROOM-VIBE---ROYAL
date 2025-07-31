@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="../WEB-INF/templates/base.xhtml">
+    <ui:define name="title-view">
+        Estacionamiento VIP
+    </ui:define>
+    <ui:define name="content">
+        <div style="max-width:700px; margin:auto; background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.08); padding:2em;">
+            <h2 style="color:#007ad9; text-align:center;">
+                <i class="pi pi-car" style="font-size:2em; margin-right:10px;"></i>
+                Estacionamiento Privado y Seguro
+            </h2>
+            <img src="#{request.contextPath}/images/servicios/estacionamiento.jpg"
+                 alt="Estacionamiento"
+                 style="display:block; margin:2em auto 1em auto; max-width:300px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.07);" />
+            <h:outputText value="Disfruta de estacionamiento cubierto, vigilancia 24h y acceso exclusivo para huéspedes. Seguridad y comodidad garantizadas." style="font-size:1.1em; display:block; margin-bottom:2em;" />
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,59 @@
+button.ui-button {
+    margin-right: .5rem;
+}
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header-container {
+    background-color: #003366;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: nowrap;
+}
+.app-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-info {
+    text-align: right;
+}
+.content-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem;
+    margin-top: 120px; /* Ajuste para evitar que se tape por el menú fijo */
+}
+.centered-card {
+    width: 95%;
+    max-width: 1200px;
+}
+.footer-container {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 1rem;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}

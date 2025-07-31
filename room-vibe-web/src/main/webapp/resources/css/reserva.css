@@ -1,0 +1,40 @@
+.p-inputtext-lg,
+.p-inputnumber-input,
+.ui-selectonemenu {
+    width: 100% !important;
+    margin-bottom: 0.4em !important;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.ui-datepicker {
+    width: auto !important;
+    max-width: 300px;
+    transform: scale(0.85);
+    transform-origin: top left;
+}
+
+.ui-panelgrid .ui-grid-col-12 {
+    padding: 0.2em 0 !important;
+}
+
+.ui-panelgrid-cell {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
+}
+
+.ui-message {
+    margin-top: 0.2em !important;
+    color: #b71c1c;
+    font-size: 0.9rem;
+}
+
+label.ui-outputlabel {
+    margin-bottom: 0.2em;
+    display: inline-block;
+}
+
+.ui-message:empty {
+    display: none !important;
+}

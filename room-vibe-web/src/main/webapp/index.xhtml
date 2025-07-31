@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces">
+
+<ui:composition template="WEB-INF/templates/base.xhtml">
+    <ui:define name="title-view">
+        Room-Vibe 1.0 - Inicio
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+
+            <!-- HERO SECTION -->
+            <div class="hero-section">
+                <div class="hero-overlay">
+                    <h1 style="text-align: center; color: #fff; font-size: 2em; margin-bottom: 1em;">¿A dónde quieres ir?</h1>
+                    <p:card styleClass="hero-form-card">
+                        <h:panelGrid columns="4" columnClasses="form-col,form-col,form-col,form-btn" style="width:100%; gap: 1em; align-items:center;">
+                            <p:autoComplete id="destino" placeholder="Destino" value=""
+                                            dropdown="true" forceSelection="false"/>
+
+                            <p:datePicker id="fecha" placeholder="Fechas" selectionMode="range"/>
+
+                            <p:selectOneMenu id="huespedes" value="" style="width:100%;">
+                                <f:selectItem itemLabel="1 huésped" itemValue="1"/>
+                                <f:selectItem itemLabel="2 huéspedes" itemValue="2"/>
+                                <f:selectItem itemLabel="3 huéspedes" itemValue="3"/>
+                                <f:selectItem itemLabel="4 huéspedes" itemValue="4"/>
+                            </p:selectOneMenu>
+
+                            <p:commandButton value="Buscar" icon="pi pi-search"
+                                             styleClass="ui-button-raised ui-button-info"/>
+                        </h:panelGrid>
+                    </p:card>
+                </div>
+            </div>
+
+            <h:outputStylesheet library="css" name="index.css" />
+
+            <!-- SOBRE NOSOTROS -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#23217a;">Sobre Nosotros</h2>
+                <p style="max-width: 800px; margin: auto;">
+                    Room-Vibe es una plataforma dedicada a ofrecer la mejor experiencia hotelera, combinando tecnología, comodidad y atención personalizada. Nuestra misión es que cada huésped viva una estadía inolvidable.
+                </p>
+            </div>
+
+            <!-- HABITACIONES -->
+            <style>
+                .product-item .product-item-content {
+                    border: 1px solid var(--surface-d);
+                    border-radius: 3px;
+                    margin: .3rem;
+                    text-align: center;
+                    padding: 2rem 0;
+                    height: 100%;
+                    min-height: 420px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .product-item .product-image {
+                    width: 50%;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+                }
+            </style>
+
+            <div class="card" style="background-color: #f9f9f9; padding: 2rem 0 0 0; width: 100%; margin: 0;">
+                <h2 style="text-align: center; color:#003366;">Nuestras Habitaciones</h2>
+                <p:carousel value="#{carouselView.products}" var="product" numVisible="3" numScroll="3"
+                            responsiveOptions="#{carouselView.responsiveOptions}" style="margin-top: 2em;">
+                    <f:facet name="header">
+                    </f:facet>
+                    <div class="product-item">
+                        <div class="product-item-content">
+                            <div class="mb-3">
+                                <h:graphicImage library="images" name="habitaciones/#{product.image}" styleClass="product-image" />
+                            </div>
+                            <div>
+                                <h4 class="mb-1">#{product.name}</h4>
+                                <h6 class="mt-0 mb-3">
+                                    <h:outputText value="#{product.price}">
+                                        <f:convertNumber type="currency" pattern="¤#0" currencySymbol="$" />
+                                    </h:outputText>
+                                </h6>
+                                <span class="product-badge status-available">#{product.inventoryStatus}</span>
+                                <div class="mt-5">
+                                    <p:commandButton type="button" icon="pi pi-star" styleClass="ui-button-success rounded-button mr-2" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+
+            <!-- GALERÍA -->
+            <div style="padding: 4em 2em; text-align: center;">
+                <h2 style="color:#003366;">Galería</h2>
+                <div style="display: flex; gap: 1em; flex-wrap: wrap; justify-content: center; margin-top: 2em;">
+                    <h:graphicImage library="images" name="inicio.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <h:graphicImage library="images" name="inicio1.jpg" style="width: 200px; border-radius: 10px;"/>
+                    <h:graphicImage library="images" name="inicio2.jpg" style="width: 200px; border-radius: 10px;"/>
+                </div>
+            </div>
+
+            <!-- TESTIMONIOS -->
+            <div class="card" style="background-color: #f9f9f9; ">
+                <h2 style="text-align: center; color:#003366;">Lo que dicen nuestros huéspedes</h2>
+                <p:carousel value="#{inicioBean.testimonios}"
+                            var="testimonio"
+                            numVisible="1"
+                            circular="true"
+                            autoplayInterval="5000"
+                            style="max-width: 600px; margin: auto;">
+                    <p:card>
+                        <f:facet name="title">
+                            <p:avatar image="#{testimonio.foto}" label="#{testimonio.nombre}" />
+                            #{testimonio.nombre}
+                        </f:facet>
+                        <f:facet name="subtitle">#{testimonio.fecha}</f:facet>
+                        <p>#{testimonio.comentario}</p>
+                    </p:card>
+                </p:carousel>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
